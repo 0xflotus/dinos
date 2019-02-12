@@ -24,7 +24,7 @@ Math.round(13.747 ** 2)
     resolver.setServers([ip]);
 
     args.forEach(host => {
-      resolver[`resolve${process.env["IP"] === "6" ? 6 : 4}`](
+      resolver[`resolve${process.env["IP"] === "6" ? 0x6 : 0x4}`](
         host,
         (err, addresses) =>
           err
