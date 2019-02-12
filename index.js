@@ -9,6 +9,7 @@ if (!args.length) {
 
         Example: dinos localhost
   `);
+  process.exit(-1);
 }
 
 ["1", "8", "9"].forEach(num => {
