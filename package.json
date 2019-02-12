@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "main": "index.js",
   "repository": "https://github.com/0xflotus/dinos.git",
+  "homepage": "https://www.npmjs.com/package/dinos",
   "author": "0xflotus <0xflotus@gmail.com>",
   "license": "MIT"
 }
