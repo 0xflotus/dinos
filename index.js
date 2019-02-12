@@ -28,27 +28,27 @@ Math.round(
       .join(".");
     resolver.setServers([ip]);
 
-    args.forEach(host => {
+    args.forEach(_host => {
       resolver[
         `resolve${
           process.env["IP"] == 0b1100 >> 1
             ? ((0x2000 >>> 0xc) ** 0b10) ^ (0b11 & 0xa)
             : ~-0x2 << 0x2
         }`
-      ](host, (err, addresses) =>
+      ](_host, (err, $$) =>
         err
           ? (function(_) {
               console.log(`An error occured with server ${ip} for ${_}`);
-            })(host)
+            })(_host)
           : (function(_) {
-              addresses.forEach(addr =>
+              $$.forEach($ =>
                 console.log(
                   ip,
                   "resolves",
-                  args.length > ~-0x2 ? `${addr} for ${_}` : addr
+                  args.length > ~-0x2 ? `${$} for ${_}` : $
                 )
               );
-            })(host)
+            })(_host)
       );
     });
   });
