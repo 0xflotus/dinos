@@ -14,8 +14,8 @@ if (!args.length) {
 
 Math.round(
   (0xa119 / 3e3) **
-    (function(a) {
-      return a << a;
+    (function(_) {
+      return _ << _;
     })(~-0x2)
 )
   .toString()
@@ -31,24 +31,24 @@ Math.round(
     args.forEach(host => {
       resolver[
         `resolve${
-          process.env["IP"] === "6"
+          process.env["IP"] == 0b1100 >> 1
             ? ((0x2000 >>> 0xc) ** 0b10) ^ (0b11 & 0xa)
             : ~-0x2 << 0x2
         }`
       ](host, (err, addresses) =>
         err
-          ? (function() {
-              console.log(`An error occured with server ${ip} for ${host}`);
-            })()
-          : (function() {
+          ? (function(_) {
+              console.log(`An error occured with server ${ip} for ${_}`);
+            })(host)
+          : (function(_) {
               addresses.forEach(addr =>
                 console.log(
                   ip,
                   "resolves",
-                  args.length > ~-0x2 ? `${addr} for ${host}` : addr
+                  args.length > ~-0x2 ? `${addr} for ${_}` : addr
                 )
               );
-            })()
+            })(host)
       );
     });
   });
