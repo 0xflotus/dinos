@@ -7,7 +7,7 @@ if (args.length === 0) {
   process.exit(-1);
 }
 
-const servers = ["1.1.1.1", "8.8.8.8", "9.9.9.9"];
+const { servers } = require("./servers.json");
 for (const ip of servers) {
   const resolver = new Resolver();
   resolver.setServers([ip]);
