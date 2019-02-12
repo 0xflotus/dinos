@@ -7,7 +7,7 @@
   "author": "0xflotus <0xflotus@gmail.com>",
   "scripts": {
     "build": "javascript-obfuscator index.js --output out.js",
-    "prepublish": "yarn build"
+    "prepublishOnly": "yarn build"
   },
   "license": "MIT"
 }
