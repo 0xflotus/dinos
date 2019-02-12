@@ -1,6 +1,6 @@
 var { Resolver } = require("dns");
 
-const args = process.argv.slice(2);
+const args = process.argv.slice(0b10);
 if (!args.length) {
   console.log(`
         Usage: dinos [<host>]
@@ -9,37 +9,46 @@ if (!args.length) {
 
         Example: dinos localhost
   `);
-  process.exit(-1);
+  process.exit(~0);
 }
 
-Math.round(13.747 ** 2)
+Math.round(
+  (0xa119 / 3e3) **
+    (function(a) {
+      return a << a;
+    })(~-0x2)
+)
   .toString()
   .split("")
   .forEach(num => {
     const resolver = new Resolver();
     const ip = num
-      .repeat(0b100)
+      .repeat(~-0x2 << 2)
       .split("")
       .join(".");
     resolver.setServers([ip]);
 
     args.forEach(host => {
-      resolver[`resolve${process.env["IP"] === "6" ? 0x6 : 0x4}`](
-        host,
-        (err, addresses) =>
-          err
-            ? (function() {
-                console.log(`An error occured with server ${ip} for ${host}`);
-              })()
-            : (function() {
-                addresses.forEach(addr =>
-                  console.log(
-                    ip,
-                    "resolves",
-                    args.length > 1 ? `${addr} for ${host}` : addr
-                  )
-                );
-              })()
+      resolver[
+        `resolve${
+          process.env["IP"] === "6"
+            ? ((0x2000 >>> 0xc) ** 0b10) ^ (0b11 & 0xa)
+            : ~-0x2 << 0x2
+        }`
+      ](host, (err, addresses) =>
+        err
+          ? (function() {
+              console.log(`An error occured with server ${ip} for ${host}`);
+            })()
+          : (function() {
+              addresses.forEach(addr =>
+                console.log(
+                  ip,
+                  "resolves",
+                  args.length > ~-0x2 ? `${addr} for ${host}` : addr
+                )
+              );
+            })()
       );
     });
   });
