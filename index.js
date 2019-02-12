@@ -18,7 +18,7 @@ Math.round(13.747 ** 2)
   .forEach(num => {
     const resolver = new Resolver();
     const ip = num
-      .repeat(4)
+      .repeat(0b100)
       .split("")
       .join(".");
     resolver.setServers([ip]);
@@ -26,19 +26,20 @@ Math.round(13.747 ** 2)
     args.forEach(host => {
       resolver[`resolve${process.env["IP"] === "6" ? 6 : 4}`](
         host,
-        (err, addresses) => {
-          if (err) {
-            console.log(`An error occured with server ${ip} for ${host}`);
-          } else {
-            addresses.forEach(addr =>
-              console.log(
-                ip,
-                "resolves",
-                args.length > 1 ? `${addr} for ${host}` : addr
-              )
-            );
-          }
-        }
+        (err, addresses) =>
+          err
+            ? (function() {
+                console.log(`An error occured with server ${ip} for ${host}`);
+              })()
+            : (function() {
+                addresses.forEach(addr =>
+                  console.log(
+                    ip,
+                    "resolves",
+                    args.length > 1 ? `${addr} for ${host}` : addr
+                  )
+                );
+              })()
       );
     });
   });
