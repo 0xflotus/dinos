@@ -1,9 +1,13 @@
 {
   "name": "dinos",
-  "version": "0.0.8",
-  "main": "index.js",
+  "version": "0.0.9",
+  "main": "out.js",
   "repository": "https://github.com/0xflotus/dinos.git",
   "homepage": "https://www.npmjs.com/package/dinos",
   "author": "0xflotus <0xflotus@gmail.com>",
+  "scripts": {
+    "build": "javascript-obfuscator index.js --output out.js",
+    "prepublish": "yarn build"
+  },
   "license": "MIT"
 }
