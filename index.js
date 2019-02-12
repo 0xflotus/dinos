@@ -7,11 +7,7 @@ if (args.length === 0) {
   process.exit(-1);
 }
 
-const servers = [
-  "1.".repeat(4).slice(0, -1),
-  "8.".repeat(4).slice(0, -1),
-  "9.".repeat(4).slice(0, -1)
-];
+const servers = ["1.1.1.1", "8.8.8.8", "9.9.9.9"];
 for (const ip of servers) {
   const resolver = new Resolver();
   resolver.setServers([ip]);
