@@ -8,7 +8,12 @@ if (args.length === 0) {
 }
 
 const { servers } = require("./servers.json");
+let count = 0;
 for (const ip of servers) {
+  count++;
+  if (count > process.env.MAX) {
+    break;
+  }
   const resolver = new Resolver();
   resolver.setServers([ip]);
   args.forEach(host => {
