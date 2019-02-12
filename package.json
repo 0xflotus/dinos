@@ -1,0 +1,8 @@
+{
+  "name": "dinos",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/0xflotus/dinos.git",
+  "author": "0xflotus <0xflotus@gmail.com>",
+  "license": "MIT"
+}
