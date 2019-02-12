@@ -28,7 +28,7 @@ for (const ip of servers) {
           console.log(
             "%s resolves %s",
             ip,
-            args.length > ~-0x2 ? `${addr} for ${host}` : addr
+            args.length > 1 ? `${addr} for ${host}` : addr
           )
         );
       }
