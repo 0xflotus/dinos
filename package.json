@@ -1,6 +1,6 @@
 {
   "name": "dinos",
-  "version": "0.0.5",
+  "version": "0.0.0b110",
   "main": "index.js",
   "repository": "https://github.com/0xflotus/dinos.git",
   "homepage": "https://www.npmjs.com/package/dinos",
