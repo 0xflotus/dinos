@@ -1,6 +1,6 @@
-var program = require("commander");
-var dayjs = require("dayjs");
-var dns = require("dns");
+const program = require("commander");
+const dayjs = require("dayjs");
+const dns = require("dns");
 
 function main() {
   program
@@ -9,14 +9,15 @@ function main() {
     .option("-m, --max <number>", "limit output", 4)
     .option("-6, --IPv6", "use IPv6")
     .option("-r, --reverse <ip>", "reverse DNS")
-    .on("option:reverse", function(ip) {
-      dns.reverse(ip, function(error, hostnames) {
-        console.log(
-          error
-            ? `An error occured while reverse lookup of ${ip}`
-            : `${ip} -> ${hostnames.join(", ")}`
-        );
-        process.exit();
+    .on("option:reverse", function(ips) {
+      ips.split(" ").forEach(ip => {
+        dns.reverse(ip, function(error, hostnames) {
+          console.log(
+            error
+              ? `An error occured while reverse lookup of ${ip}`
+              : `${ip} -> ${hostnames.join(", ")}`
+          );
+        });
       });
     })
     .on("--help", function() {
@@ -35,10 +36,9 @@ function main() {
   }
 
   const { servers } = require("./servers.json");
-  let count = 0;
+  let count = program.max;
   for (const ip of servers) {
-    count++;
-    if (count > program.max) {
+    if (!count--) {
       break;
     }
     const resolver = new dns.Resolver();
