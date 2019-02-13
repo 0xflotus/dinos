@@ -1,17 +1,29 @@
 var program = require("commander");
-var { Resolver } = require("dns");
+var dns = require("dns");
 
 function main() {
   program
     .version(require("./package.json").version)
     .usage("[<host>]")
-    .option("-m, --max <number>", "Limit output", 4)
-    .option("-6, --IPv6", "Use IPv6")
+    .option("-m, --max <number>", "limit output", 4)
+    .option("-6, --IPv6", "use IPv6")
+    .option("-r, --reverse <ip>", "reverse DNS")
     .parse(process.argv);
 
-  if (program.args.length === 0) {
+  if (program.args.length === 0 && !program.reverse) {
     program.outputHelp();
     process.exit();
+  }
+
+  if (program.reverse) {
+    dns.reverse(program.reverse, function(error, hostnames) {
+      console.log(
+        error
+          ? `An error occured while reverse lookup of ${program.reverse}`
+          : `${program.reverse} -> ${hostnames.join(", ")}`
+      );
+      process.exit();
+    });
   }
 
   const { servers } = require("./servers.json");
@@ -21,14 +33,11 @@ function main() {
     if (count > program.max) {
       break;
     }
-    const resolver = new Resolver();
+    const resolver = new dns.Resolver();
     resolver.setServers([ip]);
     program.args.forEach(host => {
-      resolver[`resolve${program.IPv6 ? 6 : 4}`](host, function(
-        err,
-        addresses
-      ) {
-        if (err) {
+      resolver[`resolve${program.IPv6 ? 6 : 4}`](host, (error, addresses) => {
+        if (error) {
           console.log("An error occured with server %s for %s", ip, host);
         } else {
           addresses.forEach(addr =>
