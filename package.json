@@ -1,7 +1,7 @@
 {
   "name": "dinos",
-  "version": "0.0.22",
-  "main": "out.js",
+  "version": "0.0.23",
+  "main": "index.js",
   "repository": "https://github.com/0xflotus/dinos.git",
   "homepage": "https://www.npmjs.com/package/dinos",
   "author": "0xflotus <0xflotus@gmail.com>",
@@ -15,6 +15,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.19.0"
+    "commander": "^2.19.0",
+    "dayjs": "^1.8.5"
   }
 }

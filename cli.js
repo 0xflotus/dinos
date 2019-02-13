@@ -1,4 +1,5 @@
 var program = require("commander");
+var dayjs = require("dayjs");
 var dns = require("dns");
 
 function main() {
@@ -7,20 +8,26 @@ function main() {
     .usage("[<host>]")
     .option("-m, --max <number>", "limit output", 4)
     .option("-6, --IPv6", "use IPv6")
-    .option("-r, --reverse <ip>", "reverse DNS");
-
-  program.on("option:reverse", function(ip) {
-    dns.reverse(ip, function(error, hostnames) {
+    .option("-r, --reverse <ip>", "reverse DNS")
+    .on("option:reverse", function(ip) {
+      dns.reverse(ip, function(error, hostnames) {
+        console.log(
+          error
+            ? `An error occured while reverse lookup of ${ip}`
+            : `${ip} -> ${hostnames.join(", ")}`
+        );
+        process.exit();
+      });
+    })
+    .on("--help", function() {
       console.log(
-        error
-          ? `An error occured while reverse lookup of ${ip}`
-          : `${ip} -> ${hostnames.join(", ")}`
+        "\n\nmade by 0xflotus from %s",
+        dayjs(require("fs").statSync("./package.json").mtime).format(
+          "MM/DD/YYYY"
+        )
       );
-      process.exit();
-    });
-  });
-
-  program.parse(process.argv);
+    })
+    .parse(process.argv);
 
   if (program.args.length === 0 && !program.reverse) {
     program.outputHelp();
