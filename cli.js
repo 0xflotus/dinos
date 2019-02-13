@@ -32,7 +32,7 @@ function main() {
     process.exit();
   }
 
-  const { servers } = require("./servers.json");
+  const { servers } = require("cosmiconfig")("dinosConfig").searchSync("servers").config;
   let count = program.all ? servers.length : program.max;
   for (const ip of servers) {
     if (!count--) {

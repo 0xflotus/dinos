@@ -24,6 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.19.0",
+    "cosmiconfig": "^5.0.7",
     "dayjs": "^1.8.5"
   },
   "devDependencies": {
@@ -69,5 +70,17 @@
     "bracketSpacing": true,
     "arrowParens": "always",
     "endOfLine": "lf"
+  },
+  "dinosConfig": {
+    "servers": [
+      "1.1.1.1",
+      "8.8.8.8",
+      "9.9.9.9",
+      "8.8.4.4",
+      "149.112.112.112",
+      "1.0.0.1",
+      "185.228.168.9",
+      "185.228.169.9"
+    ]
   }
 }
