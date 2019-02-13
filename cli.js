@@ -13,6 +13,7 @@ function main() {
     .on("option:reverse", function(ips) {
       ips.split(" ").forEach(ip => {
         dns.reverse(ip, function(error, hostnames) {
+          // eslint-disable-next-line
           console.log(
             error
               ? `An error occured while reverse lookup of ${ip}`
@@ -22,6 +23,7 @@ function main() {
       });
     })
     .on("--help", function() {
+      // eslint-disable-next-line
       console.log(
         "\n\nmade by 0xflotus from %s",
         dayjs(require("fs").statSync("./package.json").mtime).format(
@@ -47,9 +49,11 @@ function main() {
     program.args.forEach(host => {
       resolver[`resolve${program.IPv6 ? 6 : 4}`](host, (error, addresses) => {
         if (error) {
+          // eslint-disable-next-line
           console.log("An error occured with server %s for %s", ip, host);
         } else {
           addresses.forEach(addr =>
+            // eslint-disable-next-line
             console.log(
               "%s resolves %s",
               ip,

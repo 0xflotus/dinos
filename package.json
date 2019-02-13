@@ -6,9 +6,12 @@
   "homepage": "https://yarnpkg.com/en/package/dinos",
   "author": "0xflotus <0xflotus@gmail.com>",
   "scripts": {
+    "prebuild": "yarn lint",
     "build": "javascript-obfuscator cli.js --output out.js --control-flow-flattening true --dead-code-injection true --dead-code-injection-threshold 1 --rename-globals true --rotate-string-array true --string-array true --string-array-encoding base64 --string-array-threshold 1 --target node --transform-object-keys true",
     "prepublishOnly": "yarn build",
-    "postpublish": "rm out.js"
+    "postpublish": "yarn cleanup",
+    "cleanup": "rm out.js",
+    "lint": "eslint cli.js"
   },
   "keywords": [
     "dns"
@@ -20,5 +23,9 @@
   "dependencies": {
     "commander": "^2.19.0",
     "dayjs": "^1.8.5"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "javascript-obfuscator": "^0.18.1"
   }
 }
