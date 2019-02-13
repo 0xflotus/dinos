@@ -6,7 +6,7 @@
   "homepage": "https://www.npmjs.com/package/dinos",
   "author": "0xflotus <0xflotus@gmail.com>",
   "scripts": {
-    "build": "javascript-obfuscator cli.js --output out.js --control-flow-flattening true --dead-code-injection true --dead-code-injection-threshold 1 --rename-globals true --rotate-string-array true --string-array true --string-array-encoding base64 --string-array-threshold 1 --target node --transform-object-keys true && chmod a+x out.js",
+    "build": "javascript-obfuscator cli.js --output out.js --control-flow-flattening true --dead-code-injection true --dead-code-injection-threshold 1 --rename-globals true --rotate-string-array true --string-array true --string-array-encoding base64 --string-array-threshold 1 --target node --transform-object-keys true",
     "prepublishOnly": "yarn build",
     "postpublish": "rm out.js"
   },
