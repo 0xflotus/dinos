@@ -11,6 +11,6 @@ A DNS Client
 | Option | Description |
 | -------------------- | ----------------------- |
 | -V, --version | output the version number |
-| -m, --max \<number\> | Limit output |
-| -6, --IPv6 | Use IPv6 |
+| -m, --max \<number\> | limit output |
+| -6, --IPv6 | use IPv6 |
 | -h, --help | output usage information |
