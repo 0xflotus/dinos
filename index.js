@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-var main = require("./cli");
+var main = require("./out");
 
 main();
