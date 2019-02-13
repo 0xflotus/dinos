@@ -12,6 +12,7 @@ A DNS Client
 | -------------------- | ------------------------- |
 | -V, --version        | output the version number |
 | -m, --max \<number\> | limit output              |
+| -a, --a              | use all servers           |
 | -6, --IPv6           | use IPv6                  |
 | -r, --reverse \<ip\> | reverse lookup            |
 | -h, --help           | output usage information  |
