@@ -1,3 +1,8 @@
 yarn.lock
 .gitignore
+
+# Src
 cli.js
+
+# Website Content
+index.html
