@@ -3,7 +3,7 @@ var { Resolver } = require("dns");
 
 program
   .version(require("./package.json").version)
-  .usage("dinos <host>")
+  .usage("[<host>]")
   .option("-m, --max <number>", "Limit output")
   .option("-6, --IPv6", "Use IPv6")
   .parse(process.argv);

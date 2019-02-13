@@ -1,11 +1,15 @@
 # dinos
+
 A DNS Client
 
 ## Usage
-`dinos [<host>]`
 
-### IPv6 Support
-`IP=6 dinos [<host>]`
+**Usage:** _dinos [\<host>\]_
 
-### Limit output
-`MAX=3 dinos [<host>]`
+**Options:**
+| Option | Description |
+| -------------------- | :-----------------------: |
+| -V, --version | output the version number |
+| -m, --max \<number\> | Limit output |
+| -6, --IPv6 | Use IPv6 |
+| -h, --help | output usage information |
