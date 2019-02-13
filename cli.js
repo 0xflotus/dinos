@@ -5,7 +5,7 @@ function main() {
   program
     .version(require("./package.json").version)
     .usage("[<host>]")
-    .option("-m, --max <number>", "Limit output")
+    .option("-m, --max <number>", "Limit output", 4)
     .option("-6, --IPv6", "Use IPv6")
     .parse(process.argv);
 
