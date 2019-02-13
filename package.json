@@ -1,5 +1,6 @@
 {
   "name": "dinos",
+  "description" : "δεινός",
   "version": "0.1.3",
   "main": "index.js",
   "repository": "https://github.com/0xflotus/dinos.git",
