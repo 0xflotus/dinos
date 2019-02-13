@@ -7,23 +7,24 @@ function main() {
     .usage("[<host>]")
     .option("-m, --max <number>", "limit output", 4)
     .option("-6, --IPv6", "use IPv6")
-    .option("-r, --reverse <ip>", "reverse DNS")
-    .parse(process.argv);
+    .option("-r, --reverse <ip>", "reverse DNS");
+
+  program.on("option:reverse", function(ip) {
+    dns.reverse(ip, function(error, hostnames) {
+      console.log(
+        error
+          ? `An error occured while reverse lookup of ${ip}`
+          : `${ip} -> ${hostnames.join(", ")}`
+      );
+      process.exit();
+    });
+  });
+
+  program.parse(process.argv);
 
   if (program.args.length === 0 && !program.reverse) {
     program.outputHelp();
     process.exit();
-  }
-
-  if (program.reverse) {
-    dns.reverse(program.reverse, function(error, hostnames) {
-      console.log(
-        error
-          ? `An error occured while reverse lookup of ${program.reverse}`
-          : `${program.reverse} -> ${hostnames.join(", ")}`
-      );
-      process.exit();
-    });
   }
 
   const { servers } = require("./servers.json");
