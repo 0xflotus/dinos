@@ -1,6 +1,6 @@
 {
   "name": "dinos",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "main": "index.js",
   "repository": "https://github.com/0xflotus/dinos.git",
   "homepage": "https://www.npmjs.com/package/dinos",
@@ -10,6 +10,9 @@
     "prepublishOnly": "yarn build",
     "postpublish": "rm out.js"
   },
+  "keywords": [
+    "dns"
+  ],
   "bin": {
     "dinos": "./index.js"
   },
