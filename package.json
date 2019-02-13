@@ -12,6 +12,7 @@
     "prepublishOnly": "yarn build",
     "postpublish": "yarn cleanup",
     "cleanup": "rm out.js",
+    "prelint": "prettier --check cli.js",
     "lint": "eslint cli.js"
   },
   "keywords": [
@@ -27,6 +28,18 @@
   },
   "devDependencies": {
     "eslint": "^5.13.0",
-    "javascript-obfuscator": "^0.18.1"
+    "javascript-obfuscator": "^0.18.1",
+    "prettier": "^1.16.4"
+  },
+  "prettier": {
+    "semi": true,
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": false,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "endOfLine": "lf"
   }
 }
