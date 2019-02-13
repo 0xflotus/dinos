@@ -1,4 +1,4 @@
-# dinos
+# δεινός
 
 A DNS Client
 
