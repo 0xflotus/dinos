@@ -1,7 +1,7 @@
 {
   "name": "dinos",
   "description": "δεινός",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "main": "index.js",
   "repository": "https://github.com/0xflotus/dinos.git",
   "homepage": "https://yarnpkg.com/en/package/dinos",
