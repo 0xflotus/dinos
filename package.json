@@ -31,6 +31,34 @@
     "javascript-obfuscator": "^0.18.1",
     "prettier": "^1.16.4"
   },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "rules": {
+      "indent": [
+        "warn",
+        2
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ]
+    }
+  },
   "prettier": {
     "semi": true,
     "printWidth": 120,
