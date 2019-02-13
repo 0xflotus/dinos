@@ -7,6 +7,7 @@ function main() {
     .version(require("./package.json").version)
     .usage("[<host>]")
     .option("-m, --max <number>", "limit output", 4)
+    .option("-a, --all", "use all servers")
     .option("-6, --IPv6", "use IPv6")
     .option("-r, --reverse <ip>", "reverse DNS")
     .on("option:reverse", function(ips) {
@@ -36,7 +37,7 @@ function main() {
   }
 
   const { servers } = require("./servers.json");
-  let count = program.max;
+  let count = program.all ? servers.length : program.max;
   for (const ip of servers) {
     if (!count--) {
       break;
