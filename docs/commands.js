@@ -36,19 +36,14 @@
   },
 ]
   .map((obj) => {
-    const div = document.createElement("div");
-    div.setAttribute("class", "cmd");
-    const h4 = document.createElement("h4");
-    h4.setAttribute("class", "option");
-    h4.textContent = obj.option;
-    const pDesc = document.createElement("p");
-    pDesc.setAttribute("class", "description");
-    pDesc.textContent = obj.description;
-    const pExa = document.createElement("p");
-    pExa.setAttribute("class", "example");
-    pExa.textContent = obj.examples[0];
-    [h4, pDesc, pExa, document.createElement("hr")].forEach((node) => div.appendChild(node));
-
-    return div;
+    const tr = document.createElement("tr");
+    const tdOpt = document.createElement("td");
+    const tdDesc = document.createElement("td");
+    const tdExa = document.createElement("td");
+    tdOpt.textContent = obj.option;
+    tdDesc.textContent = obj.description;
+    tdExa.textContent = obj.examples.join(", ");
+    [tdOpt, tdDesc, tdExa].forEach((td) => tr.appendChild(td));
+    return tr;
   })
-  .forEach((cmd) => document.body.appendChild(cmd));
+  .forEach((cmd) => document.querySelector("tbody.table-body").appendChild(cmd));
