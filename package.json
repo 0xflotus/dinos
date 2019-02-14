@@ -9,8 +9,10 @@
   "scripts": {
     "prebuild": "yarn lint",
     "build": "javascript-obfuscator cli.js --output out.js --control-flow-flattening true --dead-code-injection true --dead-code-injection-threshold 1 --rename-globals true --rotate-string-array true --string-array true --string-array-encoding base64 --string-array-threshold 1 --target node --transform-object-keys true",
+    "postbuild": "yarn coc",
     "prepublishOnly": "yarn build",
     "postpublish": "yarn cleanup",
+    "coc": "weallbehave -o .",
     "cleanup": "rm out.js",
     "prelint": "prettier --check cli.js",
     "lint": "eslint cli.js",
@@ -35,7 +37,8 @@
     "eslint": "^5.13.0",
     "javascript-obfuscator": "^0.18.1",
     "jshint": "^2.10.1",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "weallbehave": "^1.2.0"
   },
   "eslintConfig": {
     "env": {
