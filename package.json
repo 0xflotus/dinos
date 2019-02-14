@@ -46,6 +46,9 @@
     "parserOptions": {
       "ecmaVersion": 2017
     },
+    "globals": {
+      "document": "readable"
+    },
     "rules": {
       "indent": [
         "warn",

@@ -1,5 +1,3 @@
-/* global document */
-
 [
   {
     option: "-V, --version",
@@ -45,6 +43,7 @@
     pExa.setAttribute("class", "example");
     pExa.textContent = obj.examples[0];
     [h4, pDesc, pExa, document.createElement("hr")].forEach((node) => div.appendChild(node));
+
     return div;
   })
   .forEach((cmd) => document.body.appendChild(cmd));
