@@ -20,3 +20,7 @@ A DNS Client
 ## Development
 
 `yarn build` will create the _out.js_, then you can use _./index.js_
+
+## Documentation
+
+See the [dinos web project](https://0xflotus.github.io/dinos/).
