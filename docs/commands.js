@@ -42,7 +42,7 @@
     const pExa = document.createElement("p");
     pExa.setAttribute("class", "example");
     pExa.textContent = obj.examples[0];
-    [h4, pDesc, pExa].forEach((node) => div.appendChild(node));
+    [h4, pDesc, pExa, document.createElement("hr")].forEach((node) => div.appendChild(node));
     return div;
   })
   .forEach((cmd) => document.body.appendChild(cmd));
