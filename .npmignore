@@ -5,4 +5,5 @@ yarn.lock
 cli.js
 
 # Website Content
-index.html
+docs/
+CNAME
