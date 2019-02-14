@@ -21,6 +21,10 @@ A DNS Client
 
 `yarn build` will create the _out.js_, then you can use _./index.js_
 
+## Code of Conduct
+
+See [CoC](CODE_OF_CONDUCT.md)
+
 ## Documentation
 
 See the [dinos web project](https://0xflotus.github.io/dinos/).
