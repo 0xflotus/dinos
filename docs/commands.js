@@ -1,3 +1,5 @@
+/* global document */
+
 [
   {
     option: "-V, --version",

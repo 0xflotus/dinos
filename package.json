@@ -1,7 +1,7 @@
 {
   "name": "dinos",
   "description": "δεινός",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "index.js",
   "repository": "https://github.com/0xflotus/dinos.git",
   "homepage": "https://yarnpkg.com/en/package/dinos",
@@ -13,7 +13,9 @@
     "postpublish": "yarn cleanup",
     "cleanup": "rm out.js",
     "prelint": "prettier --check cli.js",
-    "lint": "eslint cli.js"
+    "lint": "eslint cli.js",
+    "prelint:docs": "prettier --check docs/*.js",
+    "lint:docs": "eslint docs/*.js"
   },
   "keywords": [
     "dns"
