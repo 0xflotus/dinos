@@ -1,7 +1,8 @@
 yarn.lock
+yarn-error.log
 .gitignore
 
-# Src
+# src
 cli.js
 
 # Website Content

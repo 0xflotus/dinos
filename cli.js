@@ -10,16 +10,14 @@ function main() {
     .option("-a, --all", "use all servers")
     .option("-6, --IPv6", "use IPv6")
     .option("-r, --reverse <ip>", "reverse DNS")
-    .on("option:reverse", function(ips) {
+    .on("option:reverse", (ips) => {
       ips.split(" ").forEach((ip) => {
-        dns.reverse(ip, function(error, hostnames) {
-          // eslint-disable-next-line
+        dns.reverse(ip, (error, hostnames) => {
           console.log(error ? `An error occured while reverse lookup of ${ip}` : `${ip} -> ${hostnames.join(", ")}`);
         });
       });
     })
-    .on("--help", function() {
-      // eslint-disable-next-line
+    .on("--help", () => {
       console.log(
         "\n\nmade by 0xflotus from %s",
         dayjs(require("fs").statSync("./package.json").mtime).format("MM/DD/YYYY"),
@@ -27,7 +25,7 @@ function main() {
     })
     .parse(process.argv);
 
-  if (program.args.length === 0 && !program.reverse) {
+  if (0 === program.args.length && !program.reverse) {
     program.outputHelp();
     process.exit();
   }
@@ -35,7 +33,7 @@ function main() {
   const { servers } = require("cosmiconfig")("dinosConfig").searchSync("servers").config;
   let count = program.all ? servers.length : program.max;
   for (const ip of servers) {
-    if (!count--) {
+    if (0 === count--) {
       break;
     }
     const resolver = new dns.Resolver();
@@ -43,12 +41,10 @@ function main() {
     program.args.forEach((host) => {
       resolver[`resolve${program.IPv6 ? 6 : 4}`](host, (error, addresses) => {
         if (error) {
-          // eslint-disable-next-line
           console.log("An error occured with server %s for %s", ip, host);
         } else {
           addresses.forEach((addr) =>
-            // eslint-disable-next-line
-            console.log("%s resolves %s", ip, program.args.length > 1 ? `${addr} for ${host}` : addr),
+            console.log("%s resolves %s", ip, 1 < program.args.length ? `${addr} for ${host}` : addr),
           );
         }
       });
