@@ -1,7 +1,7 @@
 {
   "name": "dinos",
   "description": "δεινός",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "main": "index.js",
   "repository": "https://github.com/0xflotus/dinos.git",
   "homepage": "https://yarnpkg.com/en/package/dinos",
@@ -30,6 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.19.0",
+    "consoleplusplus": "^1.4.1",
     "cosmiconfig": "^5.0.7",
     "dayjs": "^1.8.5"
   },

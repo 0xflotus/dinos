@@ -15,6 +15,7 @@ A DNS Client
 | -a, --all            | use all servers           |
 | -6, --IPv6           | use IPv6                  |
 | -r, --reverse \<ip\> | reverse lookup            |
+| -d, --debug          | debugging information     |
 | -h, --help           | output usage information  |
 
 ## Development

@@ -29,6 +29,11 @@
     description: "output usage information",
     examples: ["dinos -h"],
   },
+  {
+    option: "-d, --debug",
+    description: "debugging information",
+    examples: ["dinos -d quad9.org"],
+  },
 ]
   .map((obj) => {
     const div = document.createElement("div");

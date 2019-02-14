@@ -1,3 +1,4 @@
+require("consoleplusplus");
 const program = require("commander");
 const dayjs = require("dayjs");
 const dns = require("dns");
@@ -10,6 +11,7 @@ function main() {
     .option("-a, --all", "use all servers")
     .option("-6, --IPv6", "use IPv6")
     .option("-r, --reverse <ip>", "reverse DNS")
+    .option("-d, --debug", "debugging information")
     .on("option:reverse", (ips) => {
       ips.split(" ").forEach((ip) => {
         dns.reverse(ip, (error, hostnames) => {
@@ -24,6 +26,10 @@ function main() {
       );
     })
     .parse(process.argv);
+
+  if (program.debug) {
+    console.log = console.debug;
+  }
 
   if (0 === program.args.length && !program.reverse) {
     program.outputHelp();
