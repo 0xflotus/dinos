@@ -29,16 +29,16 @@
   },
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.20.0",
+    "commander": "^5.0.0",
     "consoleplusplus": "^1.4.1",
-    "cosmiconfig": "^5.2.0",
-    "dayjs": "^1.8.13"
+    "cosmiconfig": "^6.0.0",
+    "dayjs": "^1.8.23"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "javascript-obfuscator": "^0.18.1",
-    "jshint": "^2.10.2",
-    "prettier": "^1.17.0",
+    "eslint": "^6.8.0",
+    "javascript-obfuscator": "^0.27.2",
+    "jshint": "^2.11.0",
+    "prettier": "^2.0.2",
     "weallbehave": "^1.2.0"
   },
   "eslintConfig": {
