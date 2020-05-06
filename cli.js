@@ -2,6 +2,7 @@ require("consoleplusplus");
 const program = require("commander");
 const dayjs = require("dayjs");
 const dns = require("dns");
+const cosmiconfig = require("cosmiconfig");
 
 function main() {
   program
@@ -36,26 +37,29 @@ function main() {
     process.exit();
   }
 
-  const { servers } = require("cosmiconfig")("dinosConfig").searchSync("servers").config;
-  let count = program.all ? servers.length : program.max;
-  for (const ip of servers) {
-    if (0 === count--) {
-      break;
-    }
-    const resolver = new dns.Resolver();
-    resolver.setServers([ip]);
-    program.args.forEach((host) => {
-      resolver[`resolve${program.IPv6 ? 6 : 4}`](host, (error, addresses) => {
-        if (error) {
-          console.log("An error occured with server %s for %s", ip, host);
-        } else {
-          addresses.forEach((addr) =>
-            console.log("%s resolves %s", ip, 1 < program.args.length ? `${addr} for ${host}` : addr),
-          );
-        }
+  const d = cosmiconfig.cosmiconfig("dinosConfig").search("servers");
+  d.then(data => {
+    const { config: { servers } } = data;
+    let count = program.all ? servers.length : program.max;
+    for (const ip of servers) {
+      if (0 === count--) {
+        break;
+      }
+      const resolver = new dns.Resolver();
+      resolver.setServers([ip]);
+      program.args.forEach((host) => {
+        resolver[`resolve${program.IPv6 ? 6 : 4}`](host, (error, addresses) => {
+          if (error) {
+            console.log("An error occured with server %s for %s", ip, host);
+          } else {
+            addresses.forEach((addr) =>
+              console.log("%s resolves %s", ip, 1 < program.args.length ? `${addr} for ${host}` : addr),
+            );
+          }
+        });
       });
-    });
-  }
+    }
+  });
 }
 
 module.exports = main;
