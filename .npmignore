@@ -2,9 +2,6 @@ yarn.lock
 yarn-error.log
 .gitignore
 
-# src
-cli.js
-
 # Website Content
 docs/
 CNAME
