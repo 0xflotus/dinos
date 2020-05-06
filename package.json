@@ -1,16 +1,13 @@
 {
   "name": "dinos",
   "description": "δεινός",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "index.js",
   "repository": "https://github.com/0xflotus/dinos.git",
   "homepage": "https://yarnpkg.com/en/package/dinos",
   "author": "0xflotus <0xflotus@gmail.com>",
   "scripts": {
     "prebuild": "yarn lint",
-    "build": "javascript-obfuscator cli.js --output out.js --control-flow-flattening true --dead-code-injection true --dead-code-injection-threshold 1 --rename-globals true --rotate-string-array true --string-array true --string-array-encoding base64 --string-array-threshold 1 --target node --transform-object-keys true",
-    "postbuild": "yarn coc",
-    "prepublishOnly": "yarn build",
     "postpublish": "yarn cleanup",
     "coc": "weallbehave -o .",
     "cleanup": "rm out.js",
