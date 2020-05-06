@@ -1,13 +1,12 @@
 {
   "name": "dinos",
   "description": "δεινός",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "index.js",
   "repository": "https://github.com/0xflotus/dinos.git",
   "homepage": "https://yarnpkg.com/en/package/dinos",
   "author": "0xflotus <0xflotus@gmail.com>",
   "scripts": {
-    "prebuild": "yarn lint",
     "coc": "weallbehave -o .",
     "prelint": "prettier --check cli.js",
     "lint": "eslint cli.js",
@@ -31,7 +30,6 @@
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "javascript-obfuscator": "^0.27.2",
     "jshint": "^2.11.0",
     "prettier": "^2.0.2",
     "weallbehave": "^1.2.0"
