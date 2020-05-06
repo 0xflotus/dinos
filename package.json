@@ -1,16 +1,14 @@
 {
   "name": "dinos",
   "description": "δεινός",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "index.js",
   "repository": "https://github.com/0xflotus/dinos.git",
   "homepage": "https://yarnpkg.com/en/package/dinos",
   "author": "0xflotus <0xflotus@gmail.com>",
   "scripts": {
     "prebuild": "yarn lint",
-    "postpublish": "yarn cleanup",
     "coc": "weallbehave -o .",
-    "cleanup": "rm out.js",
     "prelint": "prettier --check cli.js",
     "lint": "eslint cli.js",
     "postlint": "yarn jshint",
