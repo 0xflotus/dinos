@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "commander": "^5.0.0",
+    "commander": "^6.2.0",
     "consoleplusplus": "^1.4.1",
     "cosmiconfig": "^6.0.0",
     "dayjs": "^1.8.23"
