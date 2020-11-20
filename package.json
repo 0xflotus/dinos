@@ -29,7 +29,7 @@
     "dayjs": "^1.8.23"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
+    "eslint": "^7.13.0",
     "jshint": "^2.11.0",
     "prettier": "^2.0.2",
     "weallbehave": "^1.2.0"
