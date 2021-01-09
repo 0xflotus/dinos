@@ -1,6 +1,8 @@
+# ‼️⚠️ THIS PROJECT IS CURRENTLY NOT MAINTAINED!
+
 # δεινός
 
-A DNS Client
+An experimental DNS Client
 
 ## Usage
 
